@@ -1,0 +1,62 @@
+Burcea Marian-Gabriel 314CA -- Tema 2 Structuri de date -- Uber Simulator
+
+	Folosind cunostintele acumulate in ceea ce priveste lucrul cu structuri de
+date am realizat o aplicatie ce simuleaza comportamentul unui sistem local de
+transport.
+	Tema urmareste 2 aspecte esentiale: verificarea conexiunilor (strazilor)
+dintre locatii si simularea unor curse uber in functie de posibilitatea
+parcurgerii drumurilor. Pe parcursul temei am folosit urmatoarele structuri
+principale:
+
+ LinkedList -- folosita pentru crearea bucket-urilor (la coliziuni in
+hashtable) -- metode pentru stergere si adaugare elemente;
+
+ Hashtable -- folosit pentru stocarea locatiilor si a soferilor si pentru
+cautarea eficienta a acestora dupa nume -- metode pentru adaugare, stergere
+si verificare daca exista un element cu o anumita cheie;
+
+ Driver -- clasa pentru soferi -- contine campurile necesare pentru a lucra
+cu informatiile legate de acestia -- nu contine metode (mi-a fost mai usor
+asa);
+
+ Graph -- graful ce simuleaza legaturile (drumurile) dintre locatii -- metode
+pentru adaugare muchii, stergere muchii, verificare daca exista muchie (task3),
+verificare daca exista drum (task1), calcularea distantei dintre doua noduri
+(task2), precalcularea distantelor dintre oricare 2 noduri (task4);
+
+	Explicarea metodelor din clasa solver (taskurile 1->5 si functiile
+ajutatoare) in ordine:
+ <read_data()> -- pentru citirea datelor initiale (numele strazilor si
+legaturile dintre acestea) si adaugarea lor in hashtable;
+ <task1_solver()> -- verificarea daca exista drum intre 2 locatii (2 noduri);
+ <task2_solver()> -- calcularea distantei dinttre 2 locatii (noduri);
+ <query_c()> -- realizeaza operatii cu drumuri (muchii) intre 2 locatii:
+adaugare drum, stergere drumuri, inversare sens, transformare in drum
+bidirectional;
+ <query_q()> -- ofera informatii despre drumuri intre 2 locatii: existenta
+drum, lungime drum, lungime drum cu oprire intermediara;
+ <task3_solver()> -- apeleaza cele 2 functii anterioare referitoare la traseu;
+ <query_d()> -- adauga un sofer pe harta (sau ii schimba statusul in on daca
+exista deja);
+ <query_b()> -- scoate un sofer de pe harta (ii schimba statusul in off);
+ <set_driver> -- ajuta la actualizarea caracteristicilor unui sofer;
+ <query_q()> -- comanda efectuarea unei curse uber, daca aceasta se poate
+realiza si actualizeaza pozitia soferului, precum si celelalte caracteristici
+(rating, numar de curse, distanta parcursa);
+ <query_top_rating()>, <query_top_dist()>, query_top_rides()> -- afiseaza
+clasamentul soferilor in functie de ratingul mediu, distanta parcursa,
+respectiv numarul de curse, in ordine descrescatoare;
+ <query_info()> -- afiseaza caracteristicile ce descriu situatia unui sofer:
+locatie, rating mediu, distanta parcursa, numarul de curse;
+ <task4_solver()> -- apeleaza functiile anterioare referitoare la cursele uber
+si la soferi;
+ <task5_solver()> -- verifica posibilele locatii in care un sofer poate sa
+ajunga in functie de o cantitate de combustibil stabilita la inceput --
+locatiile sunt afisate in ordine crescatoare a combustibilului ramas la finalul
+cursei;
+
+Observatie: am considerat necesara folosirea unor structuri de date de tip
+hashtable pentru accesarea rapida a nodurilor din graf in functie de locatie
+si gasirea rapida a indicelui unui sofer in functie de numele acestuia.
+
+	Sper ca n-am ratat nimic :-)
